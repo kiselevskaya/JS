@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+    <script type="text/javascript" src="src.js"></script>
+</head>
+<body>
+<div class="container">
+    <div id="display">0</div>
+
+    <button class="btn silver" onclick="AC()">AC</button>
+    <button class="btn silver" onclick="CE()">CE</button>
+    <button class="btn silver" onclick="CE()">DEL</button>
+    <button class="btn orange" value="/" onclick="output(this.value)">÷</button>
+
+    <button class="btn" value="7" onclick="output(this.value)">7</button>
+    <button class="btn" value="8" onclick="output(this.value)">8</button>
+    <button class="btn" value="9" onclick="output(this.value)">9</button>
+    <button class="btn orange" value="*" onclick="output(this.value)">*</button>
+
+    <button class="btn" value="4" onclick="output(this.value)">4</button>
+    <button class="btn" value="5" onclick="output(this.value)">5</button>
+    <button class="btn" value="6" onclick="output(this.value)">6</button>
+    <button class="btn orange" value="-" onclick="output(this.value)">-</button>
+
+    <button class="btn" value="1" onclick="output(this.value)">1</button>
+    <button class="btn" value="2" onclick="output(this.value)">2</button>
+    <button class="btn" value="3" onclick="output(this.value)">3</button>
+    <button class="btn orange" value="+" onclick="output(this.value)">+</button>
+
+    <button class="btn" value="0" onclick="output(this.value)">0</button>
+    <button class="btn" value="." onclick="output(this.value)">.</button>
+    <button class="btn orange" onclick="result()">=</button>
+    <button class="btn orange" onclick="result()">=</button>
+</div>
+</body>
+</html>
