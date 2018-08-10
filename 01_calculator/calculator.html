@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!--<link rel="stylesheet" type="text/css" href="style.css">-->
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="src.js"></script>
 </head>
 <body>
 <div class="container">
     <div id="display">0</div>
 
-    <button class="btn silver" onclick="AC()">AC</button>
+    <button class="btn silver double" onclick="AC()">AC</button>
     <button class="btn silver" onclick="CE()">CE</button>
-    <button class="btn silver" onclick="CE()">DEL</button>
     <button class="btn orange" value="/" onclick="output(this.value)">÷</button>
 
     <button class="btn" value="7" onclick="output(this.value)">7</button>
@@ -31,8 +30,7 @@
 
     <button class="btn" value="0" onclick="output(this.value)">0</button>
     <button class="btn" value="." onclick="output(this.value)">.</button>
-    <button class="btn orange" onclick="result()">=</button>
-    <button class="btn orange" onclick="result()">=</button>
+    <button class="btn orange double" onclick="result()">=</button>
 </div>
 </body>
 </html>
