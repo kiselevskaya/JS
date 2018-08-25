@@ -1,3 +1,4 @@
+<!--file:///home/tora/JS/experiments/02_moving_div/index.html-->
 
 
 <!DOCTYPE html>
@@ -5,10 +6,16 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="src_alter.js"></script>
+    <script type="text/javascript" src="eight.js"></script>
 </head>
-<body>
+<body onclick="modifyScore(event)">
 <div id="container">
+    <!--<div style="position:absolute" height="600" width="600">-->
+    <table border="0" width="600" height="600">
+        <tr bgcolor="black"><td bgcolor="white"></td><td bgcolor="white"></td></tr>
+        <tr bgcolor="black"><td bgcolor="white"></td><td bgcolor="white"></td></tr>
+    </table>
+    <!--</div>-->
     <div>
         <img id="cookie" src="cookie_monster.png" />
     </div>
