@@ -7,6 +7,29 @@ let speed = 100;  // setTimeout(t, speed);
 let multiple = 1;
 let score = 0;
 let missed = 0;
+let started = false;
+let monsterRemoved = false;
+let monster=document.getElementById("cookie");
+let gameOver = document.createElement("img");
+gameOver.setAttribute("src", "gameover.png");
+gameOver.setAttribute("id", "gameover");
+
+
+function start(){
+    if (started===false){
+        score = 0;
+        missed = 0;
+        speed = 100;
+        started=true;
+        if (monsterRemoved===true) {
+            gameOver.remove();
+            document.getElementById("container").appendChild(monster);
+        }
+        setTimeout(t, speed);
+    } else {
+        console.log("The game still on")
+    }
+}
 
 
 function t() {
@@ -16,8 +39,6 @@ function t() {
     time += 1;
     setTimeout(t, speed);
 }
-
-setTimeout(t, speed);
 
 
 function get_x(t, scale){
@@ -52,27 +73,29 @@ function animateMonster(monster){
 }
 
 
-//window.addEventListener('click', function(event){modifyScore(multiple, score, missed)});
-
-
 function modifyScore(event){
     let monster=document.getElementById("cookie");
     let scoreMultiple = 5*multiple;
 
     let x = event.target;
-    if (x == monster){
-        console.log("catch");
-        score += 1;
-        if (score == scoreMultiple){
-            multiple += 1;
-            speed -= 5;
+    if (started===true){
+        if (x == monster){
+            console.log("catch");
+            score += 1;
+            if (score == scoreMultiple){
+                multiple += 1;
+                speed -= 5;
+            }
+        } else {
+            missed += 1;
         }
-    } else {
-        missed += 1;
     }
-
-    console.log(score);
-    console.log(missed);
-    console.log(speed);
-    console.log('next');
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("missed").innerHTML = missed;
+    if (missed===2){
+        started = false;
+        monster.remove();
+        monsterRemoved = true;
+        document.getElementById("container").appendChild(gameOver);
+    }
 }
