@@ -8,36 +8,51 @@ let multiple = 1;
 let score = 0;
 let missed = 0;
 let started = false;
-let monsterRemoved = false;
+//let monsterRemoved = false;
 let monster=document.getElementById("cookie");
+
 let gameOver = document.createElement("img");
 gameOver.setAttribute("src", "gameover.png");
 gameOver.setAttribute("id", "gameover");
 
+let timerId;
 
 function start(){
     if (started===false){
         score = 0;
         missed = 0;
+        document.getElementById("score").innerHTML = score;
+        document.getElementById("missed").innerHTML = missed;
         speed = 100;
         started=true;
-        if (monsterRemoved===true) {
+//        if (monster===null){
+//            monster.setAttribute("src", "cookie_monster.png");
+//            newCookie.setAttribute("id", "newMonster");
+//            newCookie.innerHTML = html;
+//            cookie.appendChild(newElement);
+//            document.getElementById("cookie").appendChild(gameOver);
+//        }
+        if (gameOver){
+            console.log('Game over');
             gameOver.remove();
-            document.getElementById("container").appendChild(monster);
+//            document.getElementById("container").removeAttribute(gameOver);
         }
-        setTimeout(t, speed);
-    } else {
-        console.log("The game still on")
+//        if (monsterRemoved===true) {
+//            console.log('no monster');
+//            gameOver.remove();
+//            monster.setAttribute("src", "cookie_monster.png");
+//            document.getElementById("container").appendChild(monster);
+//        }
+        timerId = setTimeout(t, speed);
     }
 }
 
 
 function t() {
     let monster=document.getElementById("cookie");
-
     animateMonster(monster);
     time += 1;
-    setTimeout(t, speed);
+    timerId = setTimeout(t, speed);
 }
 
 
@@ -75,7 +90,7 @@ function animateMonster(monster){
 
 function modifyScore(event){
     let monster=document.getElementById("cookie");
-    let scoreMultiple = 5*multiple;
+    let scoreMultiple = 3*multiple;
 
     let x = event.target;
     if (started===true){
@@ -84,7 +99,7 @@ function modifyScore(event){
             score += 1;
             if (score == scoreMultiple){
                 multiple += 1;
-                speed -= 5;
+                speed -= 10;
             }
         } else {
             missed += 1;
@@ -92,10 +107,13 @@ function modifyScore(event){
     }
     document.getElementById("score").innerHTML = score;
     document.getElementById("missed").innerHTML = missed;
-    if (missed===2){
+    if (missed===10){
         started = false;
-        monster.remove();
-        monsterRemoved = true;
         document.getElementById("container").appendChild(gameOver);
+//        monster.setAttribute("src", "");
+//        monster.remove();
+        console.log(monster);
+        clearTimeout(timerId);
+        return;
     }
 }
