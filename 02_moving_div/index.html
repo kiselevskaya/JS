@@ -5,46 +5,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style-alter.css">
     <script type="text/javascript" src="eight.js"></script>
+    <title>MUPPETS</title>
 </head>
 
 <body>
-<!--<header>-->
-    <!--<h1>Catch the Cookie Monster</h1>-->
-<!--</header>-->
+<header>
+    <h1>Catch the Muppet</h1>
+</header>
 
 <main>
+<nav>
 <div id="left-part">
     <button id="btn-start" type="button" onclick="start()">START</button>
 </div>
+<div>
+    <h2 id="level">LEVEL 1</h2>
+</div>
+</nav>
 
-<div id="middle-part">
-    <div id="container" onclick="modifyScore(event)">
-        <!--<div style="position:absolute" height="600" width="600">-->
-        <!--<table border="0" width="600" height="600">-->
-            <!--<tr bgcolor="black"><td bgcolor="white"></td><td bgcolor="white"></td></tr>-->
-            <!--<tr bgcolor="black"><td bgcolor="white"></td><td bgcolor="white"></td></tr>-->
-        <!--</table>-->
-        <!--</div>-->
-    <!--<div id="gameover">-->
-        <!--<img src="gameover.png" />-->
-    <!--</div>-->
-        <div>
-            <img id="background" src="cookie-monster.png" />
-            <img id="cookie" src="cookie_monster.png" />
-        </div>
-    </div>
+<section>
+<div id="container" onclick="modifyScore(event)">
+     <img id="background" src="cookie-monster.png" />
+     <img id="cookie" src="cookie.png" />
+</div>
+</section>
+
+<aside>
+<div id="score-block">
+    <h2 id="score-score">SCORE</h2>
+    <section id="score">0</section>
+    <section id="slash">/</section>
+    <aside id="missed">0</aside>
 </div>
 
-<div id="right-part">
-    <div id="score-block">
-        <h2>SCORE</h2>
-        <section id="score">0</section>
-        <aside id="slash">/</aside>
-        <aside id="missed">0</aside>
-    </div>
+<div id="logs">
+    <h2 id="missed-time">Missed time</h2>
+    <p id="one"></p>
 </div>
+</aside>
 </main>
 
 <footer>

@@ -65,35 +65,81 @@ body {
 #score-block {
     position: relative;
     left: 80%;
-    width:100px;
+    width:200px;
     height:100px;
-    outline:1px solid black;
+    outline:1px solid #ffcc99;
     background: #ffffcc;
     font-size: 14px;
     font-weight: bold;
     text-align: center;
 }
 
+/*
 section {
     display : inline-block;
-    width : 20px;
-    height : 50px;
+    width : 50px;
+    height : 70px;
 }
 
 aside {
     display : inline-block;
-    width : 20px;
-    height : 50px;
+    width : 50px;
+    height : 70px;
+}
+*/
+
+#logs {
+    position: relative;
+    left: 76%;
+    width:300px;
+    height:300px;
+    outline:1px solid #ffcc99;
+    background: #ffffcc;
+    text-align: center;
+}
+
+h2 {
+    color: #003300;
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
 }
 
 #score {
+    display : inline-block;
+    width : 50px;
+    height : 50px;
 
+    color: #0d9d10;
+    text-align: left;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 #slash {
+    display : inline-block;
+    width : 50px;
+    height : 50px;
 
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 #missed {
+    display : inline-block;
+    width : 50px;
+    height : 50px;
 
+    color:#e50710;
+    text-align: left;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+p {
+    color: #003300;
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
 }

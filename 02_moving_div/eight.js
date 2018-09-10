@@ -1,48 +1,49 @@
-//  Lemniscate ofBernoulli
 
+
+let startLog;
+let endLog;
+let logs;
+let monsters = ["elmo.png", "big-bird.png", "oscar.png", "abby.png", "count-von-count.png", "bert.png", "kermit.png", "grover.png", "ernie.png", "cookie.png"];
 
 let time = 0;
 let scale = (2 / (3 - Math.cos(60*time)))*9;
-let speed = 100;  // setTimeout(t, speed);
+let speed = 100;
 let multiple = 1;
 let score = 0;
 let missed = 0;
 let started = false;
-//let monsterRemoved = false;
 let monster=document.getElementById("cookie");
 
 let gameOver = document.createElement("img");
 gameOver.setAttribute("src", "gameover.png");
 gameOver.setAttribute("id", "gameover");
 
+let won = document.createElement("img");
+won.setAttribute("src", "won.png");
+won.setAttribute("id", "won");
+
 let timerId;
 
 function start(){
     if (started===false){
+        startLog = new Date().getTime();
+        logs = [];
+        document.getElementById("one").innerHTML = logs;
+        console.log(logs);
+        multiple = 1;
         score = 0;
         missed = 0;
+        document.getElementById("level").innerHTML = "LEVEL " + multiple;
         document.getElementById("score").innerHTML = score;
         document.getElementById("missed").innerHTML = missed;
         speed = 100;
         started=true;
-//        if (monster===null){
-//            monster.setAttribute("src", "cookie_monster.png");
-//            newCookie.setAttribute("id", "newMonster");
-//            newCookie.innerHTML = html;
-//            cookie.appendChild(newElement);
-//            document.getElementById("cookie").appendChild(gameOver);
-//        }
         if (gameOver){
-            console.log('Game over');
             gameOver.remove();
-//            document.getElementById("container").removeAttribute(gameOver);
         }
-//        if (monsterRemoved===true) {
-//            console.log('no monster');
-//            gameOver.remove();
-//            monster.setAttribute("src", "cookie_monster.png");
-//            document.getElementById("container").appendChild(monster);
-//        }
+        if (won){
+            won.remove();
+        }
         timerId = setTimeout(t, speed);
     }
 }
@@ -74,8 +75,8 @@ function animateMonster(monster){
     let width = box.offsetWidth;
     let height = box.offsetHeight;
 
-    let centerX = width/2-25;
-    let centerY = height/2-25;
+    let centerX = width/2-35;
+    let centerY = height/2-35;
 
     let monsterLeft = monster.offsetLeft;
     let monsterTop = monster.offsetTop;
@@ -95,24 +96,35 @@ function modifyScore(event){
     let x = event.target;
     if (started===true){
         if (x == monster){
-            console.log("catch");
             score += 1;
             if (score == scoreMultiple){
                 multiple += 1;
-                speed -= 10;
+                speed -= 5;
+                monster.setAttribute("src", monsters[multiple-2]);
             }
         } else {
             missed += 1;
+            endLog = new Date().getTime();
+            logs.push(missed + " time you missed is on: " + (endLog-startLog)/1000 + "sec");
         }
     }
+    if (multiple===11){
+        multiple = 10;
+    }
+    document.getElementById("level").innerHTML = "LEVEL " + multiple;
+    document.getElementById("one").innerHTML = logs.join("<br>");
     document.getElementById("score").innerHTML = score;
     document.getElementById("missed").innerHTML = missed;
     if (missed===10){
         started = false;
         document.getElementById("container").appendChild(gameOver);
-//        monster.setAttribute("src", "");
-//        monster.remove();
         console.log(monster);
+        clearTimeout(timerId);
+        return;
+    }
+    if (score===10*3) {
+        started = false;
+        document.getElementById("container").appendChild(won);
         clearTimeout(timerId);
         return;
     }
