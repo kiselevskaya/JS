@@ -8,12 +8,10 @@ let decrease = false;
 
 function t() {
     let monster=document.getElementById("cookie");
-
     animateMonster(monster);
-
+//    time+=1;
     setTimeout(t, 10);
 }
-
 
 setTimeout(t, 10);
 
@@ -46,10 +44,10 @@ function animateMonster(monster){
         decrease = true;
     } else if (monsterLeft == centerX && monsterTop == centerY){
         decrease = false;
-    };
+    }
     if (decrease === false){
         theta = theta + increment;
     } else if (decrease === true){
         theta = theta - increment;
-    };
+    }
 };

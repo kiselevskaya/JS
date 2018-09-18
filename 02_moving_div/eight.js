@@ -1,5 +1,3 @@
-
-
 let startLog;
 let endLog;
 let logs;
